@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cvy8251vkxgd"]
+
+[ext_resource type="Script" uid="uid://bn1ls882qbf3q" path="res://scenes/Enemy.gd" id="1_55jtl"]
+[ext_resource type="Texture2D" uid="uid://dgrrg14sgp4f4" path="res://assets/playerShip1_blue.png" id="2_mpr68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8do"]
+size = Vector2(75, 97)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wwv6"]
+radius = 143.28294
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1294182112]
+script = ExtResource("1_55jtl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1012994114]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_ft8do")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=851508016]
+rotation = -1.5707964
+texture = ExtResource("2_mpr68")
+
+[node name="Detection" type="Area2D" parent="." unique_id=1981278578]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection" unique_id=1704680509]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_5wwv6")
+
+[node name="Spawnpos" type="Marker2D" parent="." unique_id=1520806897]
+position = Vector2(-67, -1)
+
+[node name="Laserspeed" type="Timer" parent="." unique_id=1831736464]
+wait_time = 0.3
+autostart = true
+
+[connection signal="body_entered" from="Detection" to="." method="_on_detection_body_entered"]
+[connection signal="timeout" from="Laserspeed" to="." method="_on_laserspeed_timeout"]

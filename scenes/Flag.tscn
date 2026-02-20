@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://f6votm08vgm2"]
+
+[ext_resource type="Texture2D" uid="uid://p1ymc52wke16" path="res://assets/flag.png" id="1_hdgai"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdgai"]
+size = Vector2(49, 67)
+
+[node name="Flag" type="StaticBody2D" unique_id=1015079066]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2068643845]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_hdgai")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=557535085]
+position = Vector2(1.0000018, -14.749999)
+scale = Vector2(1.2857145, 1.3499999)
+texture = ExtResource("1_hdgai")
